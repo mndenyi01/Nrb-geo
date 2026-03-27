@@ -33,5 +33,27 @@ This notebook implements graph coloring to solve the problem of assigning colors
 5. **Color Mapping**: Maps the numerical color indices to a predefined color palette (green, blue, orange, pink).
 6. **Colored Visualization**: Plots the Nairobi sub-counties map with each sub-county colored according to the graph coloring result, using a categorical colormap and black edges for boundaries.
 
+## Script Implementation: The main file (`idk.py`)
+
+The code from the `idk.ipynb` notebook was carefully incorporated into the standalone Python script `idk.py`. Key adaptations include:
+
+- Combining all code cells into a single executable script.
+- Adding detailed comments for clarity and maintainability.
+- Removing interactive elements (like uncommented plot shows) and ensuring the script runs end-to-end.
+- Preserving the core logic: data loading, neighbor detection, graph construction, coloring, and visualization.
+
+The script can be run with `python idk.py` from the project root.
+
+## Output to be expected
+
+When running `idk.py`, the following outputs are generated:
+
+- **Console Output**: Prints the list of Nairobi sub-county names to the console with new indexes.
+- **Visualization**: Displays an interactive matplotlib plot window showing the colored Nairobi sub-counties map. The plot includes a legend titled "Nairobi Sub-Counties: Now with colors!!".
+
+![Nairobi Sub-counties Coloured Map](output/Colored-map.png)
+
+Note: The plot is displayed in a GUI window and does not save to a file by default. To save the plot, you can modify the script to include `plt.savefig('output.png')` before `plt.show()`.
+
 Author : Anthony Mndenyi
 ------------------------

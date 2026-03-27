@@ -1,7 +1,7 @@
 # Nairobi Sub-Counties Analysis
 
 ## Overview
-This project analyzes Nairobi sub-counties using geographical data from GADM (https://gadm.org/download_country.html). The analysis includes exploratory data visualization and graph coloring to assign distinct colors to adjacent sub-counties.
+This project analyzes Nairobi sub-counties using geographical data from GADM (https://gadm.org/download_country.html).<br> The analysis includes exploratory data visualization and graph coloring to assign distinct colors to adjacent sub-counties.
 
 ## Imported Libraries
 The following libraries are used across the notebook files:

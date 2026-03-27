@@ -1,7 +1,8 @@
-# Nairobi Sub-Counties Analysis
+Nairobi Sub-Counties 'greedyly' colouring.
+-----------------------------------------
 
 ## Overview
-This project analyzes Nairobi sub-counties using geographical data from GADM (https://gadm.org/download_country.html). The analysis includes exploratory data visualization and graph coloring to assign distinct colors to adjacent sub-counties.
+This project analyzes Nairobi sub-counties using geographical data from GADM (https://gadm.org/download_country.html).<br> The analysis includes exploratory data visualization and graph coloring to assign distinct colors to adjacent sub-counties.
 
 ## Imported Libraries
 The following libraries are used across the notebook files:
@@ -9,10 +10,8 @@ The following libraries are used across the notebook files:
 - `networkx` (imported as `nx`): For graph creation and coloring algorithms.
 - `matplotlib.pyplot` (imported as `plt`): For plotting and visualization.
 
-- `pip install geopandas networkx matplotlib ipykernel folium`is the command to install the main libraies, the rest as in `requirements.txt` are dependancies.
+- `pip install geopandas networkx matplotlib ipykernel`is the command to install the main libraies, the rest as in `requirements.txt` are dependancies.
 - Note that 'ipykernel' is for running of the jupyter notebooks.
-- Also, the 'folium' package was added on the second commit follwing an addition of an interactive map to the original.
-- To be used on another python script on another branch of this repo.
 
 ## Notebook Summaries
 
@@ -26,7 +25,7 @@ This notebook performs initial exploratory data analysis on the Nairobi sub-coun
 5. **Labeled Plotting**: Enhances the plot by adding text labels for each sub-county name at their centroids.
 
 ### idk.ipynb: Graph Coloring for Sub-Counties
-This notebook implements graph coloring to solve the problem of assigning colors to Nairobi sub-counties such that no two adjacent sub-counties share the same color. This is useful for map visualization and thematic mapping.
+This notebook implements graph coloring to solve the problem of assigning colors to Nairobi sub-counties such that no two adjacent sub-counties share the same color. This is useful in advanced map visualization and thematic mapping.
 
 1. **Data Loading and Preparation**: Loads the Kenya GeoJSON data, filters for Nairobi, and resets the index.
 2. **Neighbor Detection**: Identifies neighboring sub-counties by checking geometric intersections between polygons.
@@ -55,25 +54,7 @@ When running `idk.py`, the following outputs are generated:
 
 ![Nairobi Sub-counties Coloured Map](output/Colored-map.png)
 
-Note: The plot is displayed in a GUI window and does not save to a file by default. To save the plot, you can modify the script to include `plt.savefig('output.png')` before `plt.show()`.
-
-## Interractive Map file(`code/inter-map.py`), follow-up update
-
-The script `code/inter-map.py` extends the notebook workflow with an interactive Folium map. It reuses the same data pipeline:
-- Load `data/gadm41_KEN_2.json` with GeoPandas
-- Filter for Nairobi (`NAME_1 == 'Nairobi'`) and reset index
-- Build neighbor adjacency via geometry intersection
-- Create a NetworkX graph and apply greedy DSATUR coloring
-- Assign colors to the GeoDataFrame
-
-Then it creates a Folium map centered on Nairobi and adds the GeoDataFrame as a styled GeoJSON layer. Each sub-county is colored by the graph coloring results and has a tooltip/popup for `NAME_2`.
-
-### Output generated:
-- Exports the interactive map to: `output/nrb_itr_map.html`
-- The map file can be viewed in a browser for zoom/pan and sub-county hover information.
-- The folium map style uses `fillColor` from the assigned color values, with black boundaries and 60% opacity.
-
-
+Note: The plot is displayed in a GUI window and does not save to a file by default. To save the plot, you can modify the script to include `plt.savefig('output/output.png')` before `plt.show()`.
 
 Author📔: Anthony Mndenyi
 ------------------------

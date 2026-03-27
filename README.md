@@ -1,4 +1,4 @@
-# Nairobi Sub-Counties Analysis
+Nairobi Sub-Counties colouring and Interactive graph
 
 ## Overview
 This project analyzes Nairobi sub-counties using geographical data from GADM (https://gadm.org/download_country.html).<br> The analysis includes exploratory data visualization and graph coloring to assign distinct colors to adjacent sub-counties.
@@ -15,7 +15,6 @@ The following libraries are used across the notebook files:
 - To be used on another python script on another branch of this repo.
 
 ## Notebook Summaries
-
 ### eda1.ipynb: Nairobi Sub-Counties Polygon Plot
 This notebook performs initial exploratory data analysis on the Nairobi sub-counties dataset.
 
@@ -66,10 +65,15 @@ The script `code/inter-map.py` extends the notebook workflow with an interactive
 - Create a NetworkX graph and apply greedy DSATUR coloring
 - Assign colors to the GeoDataFrame
 
-Then it creates a Folium map centered on Nairobi and adds the GeoDataFrame as a styled GeoJSON layer. Each sub-county is colored by the graph coloring results and has a tooltip/popup for `NAME_2`.
+Then it creates a Folium map centered on Nairobi and adds the GeoDataFrame as a styled GeoJSON layer. Each sub-county is colored by the graph coloring results and has a tooltip/popup for `NAME_2`. - Yet to be resolved as evident in the image below.
 
 ### Output generated:
-- Exports the interactive map to: `output/nrb_itr_map.html`
+- Exports the interactive map to: `output/nrb_itr_map.html`.
+- Each sub-county shows it's name as per `NAME_2` or on hover.
+> This could be used to visualize 'metadata' like population and population density among others in later "follow"ups.
+
+![Interactive Map of Nairobi sub-counties](output/Itr-mp-preview.png)
+
 - The map file can be viewed in a browser for zoom/pan and sub-county hover information.
 - The folium map style uses `fillColor` from the assigned color values, with black boundaries and 60% opacity.
 

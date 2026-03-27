@@ -9,8 +9,10 @@ The following libraries are used across the notebook files:
 - `networkx` (imported as `nx`): For graph creation and coloring algorithms.
 - `matplotlib.pyplot` (imported as `plt`): For plotting and visualization.
 
-- `pip install geopandas networkx matplotlib ipykernel`is the command to install the main libraies, the rest as in `requirements.txt` are dependancies.
-- Note that 'ipykernel' is for running of the jupyter notebooks
+- `pip install geopandas networkx matplotlib ipykernel folium`is the command to install the main libraies, the rest as in `requirements.txt` are dependancies.
+- Note that 'ipykernel' is for running of the jupyter notebooks.
+- Also, the 'folium' package was added on the second commit follwing an addition of an interactive map to the original.
+- To be used on another python script on another branch of this repo.
 
 ## Notebook Summaries
 
@@ -35,14 +37,14 @@ This notebook implements graph coloring to solve the problem of assigning colors
 
 ## Script Implementation: The main file (`idk.py`)
 
-The code from the `idk.ipynb` notebook was carefully incorporated into the standalone Python script `idk.py`. Key adaptations include:
+The code from the `code/idk.ipynb` notebook was carefully incorporated into the standalone Python script `code/idk.py`. Key adaptations include:
 
 - Combining all code cells into a single executable script.
 - Adding detailed comments for clarity and maintainability.
 - Removing interactive elements (like uncommented plot shows) and ensuring the script runs end-to-end.
 - Preserving the core logic: data loading, neighbor detection, graph construction, coloring, and visualization.
 
-The script can be run with `python idk.py` from the project root.
+The script can be run with `python idk.py` from the project(or this file) root.
 
 ## Output to be expected
 
@@ -55,5 +57,23 @@ When running `idk.py`, the following outputs are generated:
 
 Note: The plot is displayed in a GUI window and does not save to a file by default. To save the plot, you can modify the script to include `plt.savefig('output.png')` before `plt.show()`.
 
-Author : Anthony Mndenyi
+## Interractive Map file(`code/inter-map.py`), follow-up update
+
+The script `code/inter-map.py` extends the notebook workflow with an interactive Folium map. It reuses the same data pipeline:
+- Load `data/gadm41_KEN_2.json` with GeoPandas
+- Filter for Nairobi (`NAME_1 == 'Nairobi'`) and reset index
+- Build neighbor adjacency via geometry intersection
+- Create a NetworkX graph and apply greedy DSATUR coloring
+- Assign colors to the GeoDataFrame
+
+Then it creates a Folium map centered on Nairobi and adds the GeoDataFrame as a styled GeoJSON layer. Each sub-county is colored by the graph coloring results and has a tooltip/popup for `NAME_2`.
+
+### Output generated:
+- Exports the interactive map to: `output/nrb_itr_map.html`
+- The map file can be viewed in a browser for zoom/pan and sub-county hover information.
+- The folium map style uses `fillColor` from the assigned color values, with black boundaries and 60% opacity.
+
+
+
+Author📔: Anthony Mndenyi
 ------------------------

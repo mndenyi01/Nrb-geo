@@ -4,19 +4,34 @@ Nairobi Sub-Counties 'greedyly' colouring.
 ## Overview
 This project analyzes Nairobi sub-counties using geographical data from GADM (https://gadm.org/download_country.html).<br> The analysis includes exploratory data visualization and graph coloring to assign distinct colors to adjacent sub-counties.
 
-## Imported Libraries
+## Virtual Environment setup and libraries used
+
+### Imported Libraries
 The following libraries are used across the notebook files:
 - `geopandas` (imported as `gpd`): For handling geospatial data and GeoJSON files.
 - `networkx` (imported as `nx`): For graph creation and coloring algorithms.
 - `matplotlib.pyplot` (imported as `plt`): For plotting and visualization.
 
-- `pip install geopandas networkx matplotlib ipykernel`is the command to install the main libraies, the rest as in `requirements.txt` are dependancies.
+- These should be installed in a virtual environment in the root folder - as my recommendation.
+- If you have a virtual environments active, you should see another folder-mostly named `venv`- in your root folder.
+- Follow instructions below to create one, if you wish.
+
+### Virtual Environment(venv) setup
+1. Navigate to the root folder, in the root folder(where all the folders and README file are installed).
+2. In your terminal, type `python -m venv venv` then:-
+  - For Bash users: `source venv/Scripts/activate`
+  - For cmd users: `venv\Scripts\activate.bat`
+  - For Powershell users: `venv\Scripts\Activate.ps1`
+- After the command has run succesfully for your terminal choice above, proceed to install the said libraries.
+3. `pip install geopandas networkx matplotlib ipykernel`is the command to install the main libraies, the rest as in `requirements.txt` are dependancies.
 - Note that 'ipykernel' is for running of the jupyter notebooks.
 
 ## Notebook Summaries
 
 ### eda1.ipynb: Nairobi Sub-Counties Polygon Plot
 This notebook performs initial exploratory data analysis on the Nairobi sub-counties dataset.
+Its main reason is to first see the dataset and practice loading it before colouring its sub-counties - essentially practice.
+Similar operations here are copied to `code/idk.ipynb` with further modifications to fit the project objective.
 
 1. **Data Loading**: Reads the Kenya administrative boundaries from `data/gadm41_KEN_2.json` using GeoPandas.
 2. **Data Inspection**: Displays the first few rows of the dataset and checks the total number of records.
